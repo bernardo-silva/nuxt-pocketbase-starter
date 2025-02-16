@@ -15,4 +15,11 @@ export default defineNuxtConfig({
     ],
   },
   ssr: false,
+  app: {
+    head: {
+      link: [
+        { rel: "manifest", href: "/manifest.json" },
+      ],
+    },
+  },
 });
