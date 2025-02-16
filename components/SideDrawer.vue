@@ -4,7 +4,7 @@ const lgCollapsed = ref(false);
 <template>
   <div class="drawer lg:drawer-open">
     <!-- drawer state -->
-    <input id="drawer" type="checkbox" class="drawer-toggle" />
+    <input id="drawer" type="checkbox" class="drawer-toggle" >
 
     <!-- main content -->
     <div class="drawer-content">
@@ -13,15 +13,16 @@ const lgCollapsed = ref(false);
 
     <!-- drawer-content -->
     <div class="drawer-side">
-      <label for="drawer" aria-label="close sidebar" class="drawer-overlay"></label>
-      <div class="bg-base-100 text-base-content min-h-full w-60 flex flex-col items-center"
+      <label for="drawer" aria-label="close sidebar" class="drawer-overlay"/>
+      <div
+class="bg-base-100 text-base-content min-h-full w-60 flex flex-col items-center"
         :class="{ 'lg:w-15': lgCollapsed }">
         <!-- avatar -->
         <div class="avatar w-4/5">
-          <img class="rounded" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+          <img class="rounded" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" >
         </div>
         <p class="text-2xl font-bold" :class="{ 'hidden': lgCollapsed }">Hello, there!</p>
-        <div class="divider"></div>
+        <div class="divider"/>
         <!-- menu -->
         <ul class="menu w-full">
           <li>

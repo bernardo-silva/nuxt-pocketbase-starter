@@ -1,7 +1,4 @@
 <script setup lang="ts">
-
-const modalStore = useModalStore();
-
 </script>
 <template>
   <div class="hero bg-base-200 min-h-screen">
