@@ -30,10 +30,8 @@ export const useAuthStore = defineStore("auth", {
       });
       try {
         await pb.collection(Collections.Users).authRefresh();
-        // this.isLoggedIn = pb.authStore.isValid;
       } catch (error) {
-        // console.error("Error initializing auth:", error);
-        // showErrorDialog(error);
+        console.error("Error initializing auth:", error);
       }
     },
     async fetchUser() {

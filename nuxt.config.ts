@@ -6,6 +6,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     "@pinia/nuxt",
+    "@nuxt/eslint",
   ],
   css: ["~/assets/css/main.css"],
   vite: {
