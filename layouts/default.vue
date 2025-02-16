@@ -2,6 +2,8 @@
 </script>
 <template>
   <NavBar />
-  <NuxtPage />
+  <Drawer>
+    <NuxtPage />
+  </Drawer>
   <ErrorModal />
 </template>
