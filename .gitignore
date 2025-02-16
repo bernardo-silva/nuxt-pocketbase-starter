@@ -24,4 +24,4 @@ logs
 !.env.example
 
 # pocketbase
-./server/pb_data
+server/pb_data
