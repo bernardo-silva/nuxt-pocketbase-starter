@@ -19,6 +19,7 @@ export const useAuthStore = defineStore("auth", {
   actions: {
     async init() {
       pb.authStore.onChange(async () => {
+        console.log("auth changed");
         this.isLoggedIn = pb.authStore.isValid;
 
         if (this.isLoggedIn) {
@@ -28,11 +29,11 @@ export const useAuthStore = defineStore("auth", {
         }
       });
       try {
-        await pb.collection("users").authRefresh();
+        await pb.collection(Collections.Users).authRefresh();
         // this.isLoggedIn = pb.authStore.isValid;
       } catch (error) {
-        console.error("Error initializing auth:", error);
-        throw error;
+        // console.error("Error initializing auth:", error);
+        // showErrorDialog(error);
       }
     },
     async fetchUser() {
@@ -44,16 +45,17 @@ export const useAuthStore = defineStore("auth", {
         );
       } catch (error) {
         console.error("Error fetching user data:", error);
-        // Handle error, e.g. logout?
+        showErrorDialog(error);
         this.logout();
       }
     },
     async login(email: string, password: string) {
-      return pb.collection("users").authWithPassword(email, password)
+      console.log("logging in");
+      return pb.collection(Collections.Users).authWithPassword(email, password)
         .catch(
           (error) => {
             console.error("Login failed:", error);
-            throw error;
+            showErrorDialog(error);
           },
         );
     },
