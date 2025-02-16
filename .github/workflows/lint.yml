@@ -25,9 +25,11 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies
-      - run: pnpm install
+        run: pnpm install
 
       - name: Run linter
-      - run: pnpm lint
-      - if: failure()
+        run: pnpm lint
+
+      - name: Lint failure message
+        if: failure()
         run: echo "Linting failed. Please fix the errors before merging."
