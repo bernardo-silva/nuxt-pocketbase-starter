@@ -3,6 +3,8 @@ type LoginForm = {
   email: string;
   password: string;
 };
+
+const isLoading = ref(false);
 const form = ref<LoginForm>({
   email: "",
   password: "",
@@ -10,6 +12,12 @@ const form = ref<LoginForm>({
 const errors = ref<Partial<Record<keyof LoginForm, string>>>({});
 
 const auth = useAuthStore();
+
+onBeforeMount(() => {
+  if (auth.isLoggedIn) {
+    navigateTo("/");
+  }
+})
 
 const validateForm = (): boolean => {
   let isValid = true;
@@ -32,14 +40,15 @@ const validateForm = (): boolean => {
 };
 
 const handleLogin = async () => {
+  isLoading.value = true;
   if (validateForm()) {
     await auth.login(
       form.value.email,
       form.value.password,
     );
-    console.log("logged in ", auth.user)
-    // router.push("/");
+    navigateTo("/");
   }
+  isLoading.value = false;
 };
 </script>
 <template>
@@ -57,7 +66,10 @@ const handleLogin = async () => {
         Don't have an account?
         <NuxtLink class="link" to="/register">Register</NuxtLink>
       </p>
-      <button class="btn btn-neutral mt-4" @click="handleLogin">Login</button>
+      <button class="btn btn-neutral mt-4 relative" :disabled="isLoading" @click="handleLogin">
+        <span v-if="isLoading" class="loading loading-spinner"></span>
+        <span v-else>Login</span>
+      </button>
     </fieldset>
   </div>
 </template>
