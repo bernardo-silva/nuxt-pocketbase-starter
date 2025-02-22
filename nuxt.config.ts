@@ -21,6 +21,7 @@ export default defineNuxtConfig({
     },
   },
   app: {
+    baseURL: "/nuxt-pocketbase-starter/",
     head: {
       link: [
         { rel: "manifest", href: "/manifest.json" },
