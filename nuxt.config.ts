@@ -27,4 +27,9 @@ export default defineNuxtConfig({
       ],
     },
   },
+  nitro: {
+    prerender: {
+      ignore: ["/manifest.json"],
+    },
+  },
 });
