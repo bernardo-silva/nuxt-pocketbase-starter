@@ -15,6 +15,11 @@ export default defineNuxtConfig({
     ],
   },
   ssr: false,
+  hooks: {
+    "prerender:routes"({ routes }) {
+      routes.clear(); // Do not generate any routes (except the defaults)
+    },
+  },
   app: {
     head: {
       link: [
