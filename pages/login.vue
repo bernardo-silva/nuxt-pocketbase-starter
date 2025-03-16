@@ -20,23 +20,19 @@ onBeforeMount(() => {
 })
 
 const validateForm = (): boolean => {
-  let isValid = true;
   errors.value = {};
 
   if (!form.value.email.trim()) {
     errors.value.email = "Email is required.";
-    isValid = false;
   } else if (!/\S+@\S+\.\S+/.test(form.value.email)) {
     errors.value.email = "Email is not valid.";
-    isValid = false;
   }
 
   if (!form.value.password.trim()) {
     errors.value.password = "Password is required.";
-    isValid = false;
   }
 
-  return isValid;
+  return !Object.values(errors.value).some(Boolean);
 };
 
 const handleLogin = async () => {
@@ -63,13 +59,13 @@ v-model="form.email" :label='"Email"' :placeholder='"Enter your email"' :type='"
       <!-- Password Field -->
       <TextInput
 v-model="form.password" :label='"Password"' :placeholder='"Enter your password"' :type='"password"'
-        :error="errors.password" />
+        :error="errors.password" @change="() => errors.password = undefined" />
       <p>
         Don't have an account?
         <NuxtLink class="link" to="/register">Register</NuxtLink>
       </p>
       <button class="btn btn-neutral mt-4 relative" :disabled="isLoading" @click="handleLogin">
-        <span v-if="isLoading" class="loading loading-spinner"/>
+        <span v-if="isLoading" class="loading loading-spinner" />
         <span v-else>Login</span>
       </button>
     </fieldset>
