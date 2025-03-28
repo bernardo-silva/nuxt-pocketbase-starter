@@ -47,6 +47,26 @@ export const useAuthStore = defineStore("auth", {
         this.logout();
       }
     },
+    async register(
+      name: string,
+      email: string,
+      password: string,
+      passwordConfirm: string,
+    ) {
+      console.log("Registering");
+      return pb.collection(Collections.Users).create({
+        email,
+        password,
+        passwordConfirm,
+        name,
+      })
+        .catch(
+          (error) => {
+            console.error("Register failed:", error);
+            throw error;
+          },
+        );
+    },
     async login(email: string, password: string) {
       console.log("logging in");
       return pb.collection(Collections.Users).authWithPassword(email, password)

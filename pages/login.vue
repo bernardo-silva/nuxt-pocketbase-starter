@@ -52,13 +52,11 @@ const handleLogin = async () => {
     <fieldset class="fieldset w-xs bg-base-200 border border-base-300 p-4 rounded-box">
       <legend class="fieldset-legend">Login</legend>
       <!-- Email Field -->
-      <TextInput
-v-model="form.email" :label='"Email"' :placeholder='"Enter your email"' :type='"email"' required
+      <TextInput v-model="form.email" :label='"Email"' :placeholder='"Enter your email"' :type='"email"' required
         :error="errors.email" @change="() => errors.email = undefined" />
 
       <!-- Password Field -->
-      <TextInput
-v-model="form.password" :label='"Password"' :placeholder='"Enter your password"' :type='"password"'
+      <TextInput v-model="form.password" :label='"Password"' :placeholder='"Enter your password"' :type='"password"'
         :error="errors.password" @change="() => errors.password = undefined" />
       <p>
         Don't have an account?
