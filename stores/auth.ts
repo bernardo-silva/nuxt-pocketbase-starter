@@ -14,7 +14,7 @@ export const useAuthStore = defineStore("auth", {
     isLoggedIn: false,
   }),
   getters: {
-    userData: (state) => state.isLoggedIn && state.user ? state.user : null,
+    userData: (state) => (state.isLoggedIn && state.user ? state.user : null),
   },
   actions: {
     async init() {
@@ -38,9 +38,9 @@ export const useAuthStore = defineStore("auth", {
       console.log("Fetching user data");
       if (!pb.authStore.record) return;
       try {
-        this.user = await pb.collection(Collections.Users).getOne(
-          pb.authStore.record.id,
-        );
+        this.user = await pb
+          .collection(Collections.Users)
+          .getOne(pb.authStore.record.id);
       } catch (error) {
         console.error("Error fetching user data:", error);
         showErrorDialog(error);
@@ -54,28 +54,29 @@ export const useAuthStore = defineStore("auth", {
       passwordConfirm: string,
     ) {
       console.log("Registering");
-      return pb.collection(Collections.Users).create({
-        email,
-        password,
-        passwordConfirm,
-        name,
-      })
-        .catch(
-          (error) => {
-            console.error("Register failed:", error);
-            throw error;
-          },
-        );
+      return pb
+        .collection(Collections.Users)
+        .create({
+          email,
+          password,
+          passwordConfirm,
+          name,
+        })
+        .catch((error) => {
+          console.error("Register failed:", error);
+          throw error;
+        });
     },
     async login(email: string, password: string) {
       console.log("logging in");
-      return pb.collection(Collections.Users).authWithPassword(email, password)
-        .catch(
-          (error) => {
-            console.error("Login failed:", error);
-            showErrorDialog(error);
-          },
-        );
+      return pb
+        .collection(Collections.Users)
+        .authWithPassword(email, password)
+        .catch((error) => {
+          console.error("Login failed:", error);
+          showErrorDialog(error);
+          throw error;
+        });
     },
     async logout() {
       pb.authStore.clear();
