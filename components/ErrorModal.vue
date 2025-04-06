@@ -2,7 +2,8 @@
 const modalStore = useModalStore();
 </script>
 <template>
-  <dialog :ref="(el) => modalStore.setRef(el as HTMLDialogElement)" class="modal modal-bottom sm:modal-middle"
+  <dialog
+:ref="(el) => modalStore.setRef(el as HTMLDialogElement)" class="modal modal-bottom sm:modal-middle"
     @close="modalStore.isOpen = false">
     <div class="modal-box border-error border-t-4">
       <form method="dialog">
