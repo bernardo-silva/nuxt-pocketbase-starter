@@ -40,7 +40,7 @@ const handleLogin = async () => {
   if (validateForm()) {
     try {
       await auth.login(form.value.email, form.value.password)
-      navigateTo("/");
+      navigateTo("/protected");
     }
     finally {
       isLoading.value = false;
