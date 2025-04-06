@@ -24,13 +24,13 @@ export default defineNuxtConfig({
     baseURL: "/nuxt-pocketbase-starter/",
     head: {
       link: [
-        { rel: "manifest", href: "/manifest.json" },
+        { rel: "manifest", href: "/nuxt-pocketbase-starter/manifest.json" },
       ],
     },
   },
   nitro: {
     prerender: {
-      ignore: ["/manifest.json"],
+      ignore: ["/nuxt-pocketbase-starter/manifest.json"],
     },
   },
 });
