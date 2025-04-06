@@ -17,9 +17,6 @@ importers:
       '@tailwindcss/vite':
         specifier: ^4.0.1
         version: 4.0.1(vite@6.0.11(@types/node@22.12.0)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.37.0)(yaml@2.7.0))
-      daisyui:
-        specifier: 5.0.0-beta.5
-        version: 5.0.0-beta.5
       eslint:
         specifier: ^9.0.0
         version: 9.20.1(jiti@2.4.2)
@@ -42,6 +39,9 @@ importers:
         specifier: latest
         version: 4.5.0(vue@3.5.13(typescript@5.7.3))
     devDependencies:
+      daisyui:
+        specifier: 5.0.9
+        version: 5.0.9
       pocketbase-typegen:
         specifier: ^1.3.0
         version: 1.3.0(encoding@0.1.13)
@@ -1581,8 +1581,8 @@ packages:
   csstype@3.1.3:
     resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
 
-  daisyui@5.0.0-beta.5:
-    resolution: {integrity: sha512-TTrOdPKf+ohXgPpOEvJ5f8iTWMwi5Fk/aMb66GxKZ1UUlujnVEOvQ4FTDQtoqp9pDGQ8jw0UwnUmmOTQ+kJynA==}
+  daisyui@5.0.9:
+    resolution: {integrity: sha512-RsaehHh45f+0shWgZZaOY09/8eOae2voRsqJCD71j9yrnYgcke0Nj5ys0ZxrW4SPcc4+q96kWyJu0Z8P1zZdoA==}
 
   db0@0.2.3:
     resolution: {integrity: sha512-PunuHESDNefmwVy1LDpY663uWwKt2ogLGoB6NOz2sflGREWqDreMwDgF8gfkXxgNXW+dqviyiJGm924H1BaGiw==}
@@ -6016,7 +6016,7 @@ snapshots:
 
   csstype@3.1.3: {}
 
-  daisyui@5.0.0-beta.5: {}
+  daisyui@5.0.9: {}
 
   db0@0.2.3(sqlite3@5.1.7):
     optionalDependencies:
